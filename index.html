@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <link href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" rel="stylesheet"/>
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <div id="container" class="flex flex-col items-center">
+      <div id="header">
+
+        <h2 class="mt-3 justify-center text-3xl font-bold">Photo Gallery ({{numberOfPicture}}) Liked({{numberOfLiked}})</h2></br>
+
+        <ul class="space-y-5">
+          <li v-for="(photo, index) in photosets" class="flex items-center">
+            <button v-on:click="photo.done = !photo.done"><img :src="photo.url" width="150" height="150"></button>
+            <span class="text-sm font-medium ml-5 flex flex-col-reverse items-center"> Name: {{photo.alt}} <br/>
+              <i v-show="photo.done" class="im im-heart text-pink-500 "></i>
+            </span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
